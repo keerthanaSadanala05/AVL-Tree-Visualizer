@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVL Tree Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tree"></i> AVL Tree Visualizer</h1>
+            <p class="subtitle">Interactive Balanced Binary Search Tree</p>
+        </header>
+
+        <div class="main-content">
+            <div class="control-panel">
+                <div class="input-group">
+                    <div class="input-with-icon">
+                        <i class="fas fa-key"></i>
+                        <input type="number" id="value" placeholder="Enter key (0-999)" min="0" max="999">
+                    </div>
+                    <div class="button-group">
+                        <button class="btn btn-insert" onclick="insertValue()">
+                            <i class="fas fa-plus"></i> Insert
+                        </button>
+                        <button class="btn btn-delete" onclick="deleteValue()">
+                            <i class="fas fa-minus"></i> Delete
+                        </button>
+                        <button class="btn btn-random" onclick="randomInsert()">
+                            <i class="fas fa-random"></i> Random
+                        </button>
+                        <button class="btn btn-reset" onclick="resetTree()">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </div>
+
+                <div class="info-panel">
+                    <div class="status-card">
+                        <div class="stat">
+                            <i class="fas fa-ruler-vertical"></i>
+                            <span>Height: <strong id="height">0</strong></span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-circle-nodes"></i>
+                            <span>Nodes: <strong id="nodeCount">0</strong></span>
+                        </div>
+                        <div class="stat">
+                            <i class="fas fa-balance-scale"></i>
+                            <span>Balanced: <strong id="balanced">Yes</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-message" id="actionMessage">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Enter a number and click Insert to start</span>
+                </div>
+            </div>
+
+            <div class="visualization-area">
+                <div class="canvas-header">
+                    <h3><i class="fas fa-project-diagram"></i> Tree Visualization</h3>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="node-sample normal"></div>
+                            <span>Normal Node</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="node-sample highlight"></div>
+                            <span>Recently Modified</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="canvas">
+                    <svg id="lines"></svg>
+                    <div id="tree"></div>
+                    <div class="empty-state" id="emptyState">
+                        <i class="fas fa-tree fa-3x"></i>
+                        <h3>Tree is Empty</h3>
+                        <p>Insert a node to start visualization</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h3><i class="fas fa-lightbulb"></i> How to Use</h3>
+                <div class="instructions-grid">
+                    <div class="instruction">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <h4>Insert Nodes</h4>
+                        <p>Enter a number and click Insert or press Enter</p>
+                    </div>
+                    <div class="instruction">
+                        <i class="fas fa-search-minus"></i>
+                        <h4>Delete Nodes</h4>
+                        <p>Enter an existing number and click Delete</p>
+                    </div>
+                    <div class="instruction">
+                        <i class="fas fa-magic"></i>
+                        <h4>Auto-generate</h4>
+                        <p>Click Random to insert random values</p>
+                    </div>
+                    <div class="instruction">
+                        <i class="fas fa-sync-alt"></i>
+                        <h4>Reset Tree</h4>
+                        <p>Click Reset to clear all nodes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="avl.js"></script>
+</body>
+</html>
